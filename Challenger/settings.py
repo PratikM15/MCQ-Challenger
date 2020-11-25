@@ -25,7 +25,7 @@ SECRET_KEY = '2bpmtlbs9pg_3a01y8yk*bfedspl$u9xmwev!%^p-q1o6bi48('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mcq-challenger.herokuapp.com']
 
 
 # Application definition
@@ -120,5 +120,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-#import django_heroku
-#django_heroku.settings(locals())
+import django_heroku
+django_heroku.settings(locals())
