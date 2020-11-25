@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      {% load static %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" 
+    integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <title>Challenger</title>
+  </head>
+  <body onload="countdown({{time}})">
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
+        <div class="container-fluid">
+          <b class="navbar-brand">CHALLENGER</b>
+          <b class="nav-link" id="counter" style="padding-top:6px;font-size: 20px;"></b>
+          <button class="btn btn-success" onclick="submitForm()">Submit</button>
+        </div>
+      </nav>
+
+      <section class="container" style="padding:20px;background-color: white;margin-top: 30px;">
+        <form action="result" method="POST" id="test">{% csrf_token %}
+          <input type="hidden" name="studentid" value="{{id}}">
+          <input type="hidden" name="testcode" value="{{code}}">
+          <center><h3>Test - {{code}}</h3></center><hr>
+          {% for que in ques %}
+          <div class="que" style="padding: 10px;">
+            <label><b>{{forloop.counter}}. {{que.question}}</b></label><br>
+            <input type="radio" name="{{que.id}}" value="1" id="1"><label for="1" style="padding-left: 10px;">1. {{que.choice1}}</label><br>
+            <input type="radio" name="{{que.id}}" value="2" id="2"><label for="2" style="padding-left: 10px;">2. {{que.choice2}}</label><br>
+            <input type="radio" name="{{que.id}}" value="3" id="3"><label for="3" style="padding-left: 10px;">3. {{que.choice3}}</label><br>
+            <input type="radio" name="{{que.id}}" value="4" id="4"><label for="4" style="padding-left: 10px;">4. {{que.choice4}}</label><br>
+          </div>
+          <hr>
+          {% endfor %}
+              <center><button class="btn btn-success" type="submit">Submit</button></center>
+        </form>
+      </section>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" 
+    integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+  </body>
+</html>

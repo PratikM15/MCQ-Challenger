@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+      {% load static %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" 
+    integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" 
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    
+    <title>Challenger</title>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white;">
+      <div class="container-fluid">
+        <b class="navbar-brand">CHALLENGER</b>
+        <b class="nav-link" id="counter" style="padding-top:6px;font-size: 20px;"></b>
+        <button class="btn btn-success" onclick="submitForm()">Submit</button>
+      </div>
+    </nav>
+
+      <section class="register">
+            <center><h3>Guidelines to Follow</h3></center>
+
+            <p>1. Test Contains Multiple Choice Questions(MCQ).<br>
+               2. Only one option can be selected from four.<br>
+               3. The test will automatically submitted when the time exhausted.<br>
+               4. Switching Tab will automatically submit the test.<br>
+               5. The Test cannot be resumed after any failure. For Example, Power failure.<br>
+               6. Use of Mobile is preferred.<br>
+               7. High Speed Internet is not necessary.<br>
+            </p>
+        
+            <center><a href="{% url 'paper' id=id code=code %}"><button class="btn btn-success">Start</button></a></center>
+      </section>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" 
+    integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous"></script>
+  </body>
+</html>
