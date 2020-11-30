@@ -31,13 +31,13 @@
             <p>1. Test Contains Multiple Choice Questions(MCQ).<br>
                2. Only one option can be selected from four.<br>
                3. The test will automatically submitted when the time exhausted.<br>
-               4. Switching Tab will automatically submit the test.<br>
+               4. Switching Tab will automatically submit the test without any alert.<br>
                5. The Test cannot be resumed after any failure. For Example, Power failure.<br>
                6. Use of Mobile is preferred.<br>
                7. High Speed Internet is not necessary.<br>
             </p>
         
-            <center><a href="{% url 'paper' id=id code=code %}"><button class="btn btn-success">Start</button></a></center>
+            <center><a href="{% url 'paper' external_id=id code=code %}"><button class="btn btn-success">Start</button></a></center>
       </section>
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" 

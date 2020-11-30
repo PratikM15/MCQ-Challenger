@@ -1,7 +1,9 @@
 from django.db import models
+import uuid
 
 # Create your models here.
 class Test(models.Model):
+    external_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     code = models.CharField(max_length=5)
     description = models.CharField(max_length=200)
     active = models.BooleanField(default=True)
@@ -11,9 +13,11 @@ class Test(models.Model):
         return self.code
 
 class Student(models.Model):
+    external_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     name = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
     mobile = models.CharField(max_length=20)
+    password = models.CharField(max_length=20)
     test = models.ForeignKey(Test, on_delete=models.DO_NOTHING)
     score = models.CharField(max_length=3)
     completed = models.BooleanField(default=False)
@@ -23,6 +27,7 @@ class Student(models.Model):
         return self.name + " " + str(self.test.code)
 
 class Question(models.Model):
+    external_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     question = models.CharField(max_length=500)
     choice1 = models.CharField(max_length=500)
     choice2 = models.CharField(max_length=500)
@@ -35,6 +40,7 @@ class Question(models.Model):
         return self.question
 
 class StudentResponse(models.Model):
+    external_id = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     answer = models.CharField(max_length=1)

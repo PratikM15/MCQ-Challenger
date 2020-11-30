@@ -35,10 +35,10 @@
           {% for que in ques %}
           <div class="que" style="padding: 10px;">
             <label><b>{{forloop.counter}}. {{que.question}}</b></label><br>
-            <input type="radio" name="{{que.id}}" value="1" id="1"><label for="1" style="padding-left: 10px;">1. {{que.choice1}}</label><br>
-            <input type="radio" name="{{que.id}}" value="2" id="2"><label for="2" style="padding-left: 10px;">2. {{que.choice2}}</label><br>
-            <input type="radio" name="{{que.id}}" value="3" id="3"><label for="3" style="padding-left: 10px;">3. {{que.choice3}}</label><br>
-            <input type="radio" name="{{que.id}}" value="4" id="4"><label for="4" style="padding-left: 10px;">4. {{que.choice4}}</label><br>
+            <input type="radio" name="{{que.id}}" value="1" id="{{que.choice1}}1"><label for="{{que.choice1}}1" style="padding-left: 10px;">1. {{que.choice1}}</label><br>
+            <input type="radio" name="{{que.id}}" value="2" id="{{que.choice2}}2"><label for="{{que.choice2}}2" style="padding-left: 10px;">2. {{que.choice2}}</label><br>
+            <input type="radio" name="{{que.id}}" value="3" id="{{que.choice3}}3"><label for="{{que.choice3}}3" style="padding-left: 10px;">3. {{que.choice3}}</label><br>
+            <input type="radio" name="{{que.id}}" value="4" id="{{que.choice4}}4"><label for="{{que.choice4}}4" style="padding-left: 10px;">4. {{que.choice4}}</label><br>
           </div>
           <hr>
           {% endfor %}

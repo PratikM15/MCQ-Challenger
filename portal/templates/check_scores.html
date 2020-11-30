@@ -1,0 +1,19 @@
+{% include 'header.html' %}
+{% load static %}
+{% block content %}
+
+      <section class="register">
+        <center><h3 style="padding:10px">Check Results</h3></center>
+        <form action="check-scores" method="post">{% csrf_token %}
+              <div class="mb-3 row">
+                <label for="testId" class="col-sm-2 col-form-label">Test ID</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="testId" value="" name="code" required>
+                </div>
+              </div>
+              <div style="color:red;padding:10px"><center>{{error}}</center></div>
+              <center><button class="btn btn-success" type="submit">Check Results</button></center>
+        </form>
+      </section>
+
+{% endblock %}
