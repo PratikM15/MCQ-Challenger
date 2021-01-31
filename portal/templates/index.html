@@ -42,5 +42,27 @@
         <div style="color:rgb(255, 72, 0);padding:10px"><center>Note: Please note down your password. It is required to check result. </center></div>
 
       </section>
+      
+      <div class="container" style="background-color: white;border-radius: 25px;">
+      <center><h3 style="padding:20px">Recently Added Tests</h3></center><hr>
+        <div class="table-responsive">
+        <table class="table table-striped">
+          <tr class="success">
+            <th>Sr. No.</th>
+            <th>Code/Test ID </th>
+            <th>Description</th>
+            <th>Time (Minutes)</th>
+          </tr>
+        {% for test in tests %}
+            <tr>
+              <td>{{forloop.counter}}</td>
+              <td>{{test.code}}</td>
+              <td>{{test.description}}</td>
+              <td>{{test.test_time}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+        </div>
+        </div>
 
 {% endblock %}

@@ -30,7 +30,9 @@ def index(request):
             return render(request, 'rules.html', {'id':student.external_id, 'code': code})
         else:
             return render(request, 'index.html', {'error': 'Invalid Test Code'})
-    return render(request, 'index.html')
+    tests = Test.objects.all()
+    context = {'tests':tests}
+    return render(request, 'index.html', context)
 
 
 
